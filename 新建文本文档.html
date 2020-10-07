@@ -48,7 +48,7 @@
 <div>sdafetadgsagsdgadtf</div>
 <div>sdafetadgsagsdgadtf</div>
 <div id="wrap">
-    Êó±êÒÆ¶¯½øÈë¸ÃÇøÓò£¬Ò³Ãæ½ûÖ¹¹ö¶¯
+    é¼ æ ‡ç§»åŠ¨è¿›å…¥è¯¥åŒºåŸŸï¼Œé¡µé¢ç¦æ­¢æ»šåŠ¨
 </div>
 <div>sdafetadgsagsdgadtf</div>
 <div>sdafetadgsagsdgadtf</div>
@@ -96,7 +96,7 @@
             ;
         };
         if (navigator.userAgent.toLowerCase().indexOf('firefox') >= 0) {
-            //firefoxÖ§³Öonmousewheel
+            //firefoxæ”¯æŒonmousewheel
             addEventListener('DOMMouseScroll',
                 function (e) {
                     var obj = e.target;
@@ -110,15 +110,15 @@
                     ;
                     if (onmousewheel) {
                         if (e.preventDefault) e.preventDefault();
-                        e.returnValue = false; //½ûÖ¹Ò³Ãæ¹ö¶¯
+                        e.returnValue = false; //ç¦æ­¢é¡µé¢æ»šåŠ¨
                         if (typeof obj.onmousewheel != 'function') {
-                            //½«onmousewheel×ª»»³Éfunction
+                            //å°†onmousewheelè½¬æ¢æˆfunction
                             eval('window._tmpFun = function(event){' + onmousewheel + '}');
                             obj.onmousewheel = window._tmpFun;
                             window._tmpFun = null;
                         }
                         ;
-                        // ²»Ö±½ÓÖ´ĞĞÊÇÒòÎªÈôonmousewheel(e)ÔËĞĞÊ±¼ä½Ï³¤µÄ»°£¬»áµ¼ÖÂËø¶¨¹ö¶¯Ê§Ğ§£¬Ê¹ÓÃsetTimeout¿É±ÜÃâ
+                        // ä¸ç›´æ¥æ‰§è¡Œæ˜¯å› ä¸ºè‹¥onmousewheel(e)è¿è¡Œæ—¶é—´è¾ƒé•¿çš„è¯ï¼Œä¼šå¯¼è‡´é”å®šæ»šåŠ¨å¤±æ•ˆï¼Œä½¿ç”¨setTimeoutå¯é¿å…
                         setTimeout(function () {
                                 obj.onmousewheel(e);
                             },
