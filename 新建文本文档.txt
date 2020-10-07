@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #wrap {
+        position: absolute;
+        top: 200px;
+        background: #000000;
+        font-size: 40px;
+        width: 50vw;
+        text-align: center;
+        color: #ffffff;
+        line-height: 300px;
+        height: 300px;
+        /*overflow: hidden;*/
+    }
+
+</style>
+<body>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div id="wrap">
+    鼠标移动进入该区域，页面禁止滚动
+</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+<div>sdafetadgsagsdgadtf</div>
+
+</body>
+<script>
+    window.onload = function () {
+        for (i = 0; i < 50; i++) {
+            var x = document.createElement('div');
+            x.innerHTML = "test<br/>";
+            document.body.appendChild(x);
+        }
+
+        function $(x) {
+            return document.getElementById(x);
+        };
+        $("wrap").onmousewheel = function scrollWheel(e) {
+            var sl;
+            e = e || window.event;
+            if (navigator.userAgent.toLowerCase().indexOf('msie') >= 0) {
+                event.returnValue = false;
+            } else {
+                e.preventDefault();
+            }
+            ;
+        };
+        if (navigator.userAgent.toLowerCase().indexOf('firefox') >= 0) {
+            //firefox支持onmousewheel
+            addEventListener('DOMMouseScroll',
+                function (e) {
+                    var obj = e.target;
+                    var onmousewheel;
+                    while (obj) {
+                        onmousewheel = obj.getAttribute('onmousewheel') || obj.onmousewheel;
+                        if (onmousewheel) break;
+                        if (obj.tagName == 'BODY') break;
+                        obj = obj.parentNode;
+                    }
+                    ;
+                    if (onmousewheel) {
+                        if (e.preventDefault) e.preventDefault();
+                        e.returnValue = false; //禁止页面滚动
+                        if (typeof obj.onmousewheel != 'function') {
+                            //将onmousewheel转换成function
+                            eval('window._tmpFun = function(event){' + onmousewheel + '}');
+                            obj.onmousewheel = window._tmpFun;
+                            window._tmpFun = null;
+                        }
+                        ;
+                        // 不直接执行是因为若onmousewheel(e)运行时间较长的话，会导致锁定滚动失效，使用setTimeout可避免
+                        setTimeout(function () {
+                                obj.onmousewheel(e);
+                            },
+                            1);
+                    }
+                    ;
+                },
+                false);
+        }
+        ;
+    }
+</script>
+</html>
